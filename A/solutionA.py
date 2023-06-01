@@ -16,7 +16,7 @@ rf_model = RandomForestClassifier(n_estimators=2000) #initialise model with twea
 rf_model.fit(x_train, y_train) #fit random forest classifier to the training data
 y_pred = rf_model.predict(x_test) #make predictions on testing data
 
-y_pred_p = rf_model.predict_proba(x_test)[:, 1] 
+y_pred_p = rf_model.predict_proba(x_test)[:, 1] #get the prediction's probabilities for each entry in the model
 threshold = 0.4
 for i in range(len(y_pred_p)): #reclassify values given the threshold
     if y_pred_p[i] >= threshold:
